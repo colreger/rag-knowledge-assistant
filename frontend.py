@@ -1,4 +1,5 @@
 import streamlit as st
+from answer_machine import get_answer
 
 # Seitentitel im Browser-Tab und Überschrift auf der Seite
 st.set_page_config(page_title="Knowledge Assistant")
@@ -33,8 +34,8 @@ if user_input:
     with st.chat_message("user"):
         st.markdown(user_input)
 
-    # 2. Echo-Antwort erzeugen (noch keine KI, nur Platzhalter-Logik)
-    echo_response = f"Echo: {user_input}"
+    # 2. eine Antwort erzeugen mit Random Answer Machine
+    echo_response = get_answer(user_input)
 
     # 3. Bot-Antwort speichern und anzeigen
     st.session_state.messages.append({"role": "assistant", "content": echo_response})
