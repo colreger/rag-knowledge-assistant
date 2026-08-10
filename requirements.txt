@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 altair==6.2.2
 anyio==4.14.1
 attrs==26.1.0
@@ -39,3 +40,7 @@ typing_extensions==4.16.0
 urllib3==2.7.0
 uvicorn==0.50.0
 websockets==16.0
+=======
+streamlit==1.58.0
+python-dotenv==1.2.2
+openai==2.53.0
