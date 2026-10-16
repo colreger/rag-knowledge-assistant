@@ -13,6 +13,17 @@ def read_pdf_file(uploaded_file):
 
     return text
 
-def chunk_text(text):
-    chunks = text.split("\n\n")
+def chunk_text(text, chunk_size=1000):
+    # Split the document into chunks with a maximum size of
+    # approximately 1000 characters.
+    #
+    # Previously, the text was split only at double line breaks.
+    # PDF extraction does not always preserve paragraph breaks,
+    # which could result in the entire PDF becoming one large chunk.
+    chunks = []
+
+    for start in range(0, len(text), chunk_size):
+        chunk = text[start:start + chunk_size]
+        chunks.append(chunk)
+
     return chunks
